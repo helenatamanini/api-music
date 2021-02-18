@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain\music;
 
-class Music
+use App\Domain\Entity;
+
+class Music extends Entity
 {
 
     public int $id;
