@@ -14,7 +14,7 @@ class GenreRepository extends AbstractRepository
     public function save(Genre $genre): int
     {
 
-
+        var_dump($this->getByField('music','id',1));die;
         $stmt = $this->pdo->prepare('INSERT INTO genre(name) VALUES (:name)');
         $stmt->bindValue(':name', $genre->name);
 
@@ -23,5 +23,5 @@ class GenreRepository extends AbstractRepository
         return (int)$this->pdo->lastInsertId();
     }
 
-    
+
 }
