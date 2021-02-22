@@ -21,17 +21,20 @@ class MusicService
         if (!isset($music->name)) {
             $result['result'] = 'Nome não enviado';
             $result['code'] = 403;
+
             return $data;
         }
-     
+
         if (!isset($music->duration)) {
             $result['result'] = 'Duração não enviado';
             $result['code'] = 403;
+
             return $result;
         }
 
         $result['result'] = $this->musicRepository->save($music);
         $result['code'] = 200;
+
         return $result;
     }
 }
