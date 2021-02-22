@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-define('MYSQL_DSN', 'mysql:host=127.0.0.1;dbname=api-music;');
+define('MYSQL_DSN', 'mysql:host=127.0.0.1;dbname=music;');
 define('MYSQL_USER', 'root');
 define('MYSQL_PWD', '');
 

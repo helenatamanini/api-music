@@ -13,10 +13,7 @@ class CreateMusicAction extends AbstractMusicAction{
         $data=$this->getFormData();
         $response=$this->musicService->create($data);
 
-        if(is_int($response)){
-            return $this->respondWithData($response,200);
-        }
-        return $this->respondWithData($response,403);
+        return $this->respondWithData($response['result'],$response['code']);
          
          
     }
