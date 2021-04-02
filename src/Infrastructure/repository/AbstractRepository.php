@@ -27,7 +27,6 @@ abstract class AbstractRepository
     {
         $stmt = $this->pdo->prepare('SELECT * FROM '.$table.' where '.$field.' = :value');
 
-
         $stmt->bindValue(':value', $value, PDO::PARAM_INT);
 
         $stmt->execute();
