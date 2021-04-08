@@ -38,17 +38,18 @@ class MusicService
         return $result;
     }
 
-    public function update(int $id,array $data){
-        
+    public function update(int $id, array $data)
+    {
+
         $result = [];
         $music = $this->musicRepository->getById($id);
-        if($music==false){
-            $result['result']='musica nao encontrada';
+        if ($music == false) {
+            $result['result'] = 'musica nao encontrada';
             $result['code'] = 404;
-            
+
             return $result;
         }
-       
+
         $music->setData($data);
 
 
@@ -72,28 +73,22 @@ class MusicService
         return $result;
     }
 
-    // public function delete(int $id){
-        
-    //     $result = [];
-    //     $music = $this->musicRepository->getById($id);
-    //     if($music==false){
-    //         $result['result']='musica nao encontrada';
-    //         $result['code'] = 404;
-            
-    //         return $result;
-    //     }
-       
-    //     if (!isset($music->id)) {
-    //         $result['result'] = 'musica nao encontrada';
-    //         $result['code'] = 403;
+    public function delete(int $id): array
+    {
 
-    //         return $result;
-    //     }
+        $result = [];
+        $music = $this->musicRepository->getById($id);
+        if ($music == false) {
+            $result['result'] = 'musica nao encontrada';
+            $result['code'] = 404;
 
-    //     $result['result'] = $this->musicRepository->delete($music);
-    //     $result['code'] = 200;
+            return $result;
+        }
 
-    //     return $result;
-    // }
+        $this->musicRepository->delete($id);
+        $result['result'] = 'Musica deletada com sucesso';
+        $result['code'] = 200;
 
+        return $result;
+    }
 }

@@ -6,6 +6,7 @@ use Slim\App;
 use Psr\Http\Message\ResponseInterface as Response;
 use App\Application\Actions\Genre\CreateGenreAction;
 use App\Application\Actions\Music\CreateMusicAction;
+use App\Application\Actions\Music\MusicDeleteAction;
 use App\Application\Actions\Music\MusicUpdateAction;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
@@ -24,6 +25,7 @@ return function (App $app) {
     $app->group('/music',function (Group $musics){
         $musics->post('',CreateMusicAction::class);
         $musics->put('/{id}',MusicUpdateAction::class);
+        $musics->delete('/{id}', MusicDeleteAction::class);
         
     });
 

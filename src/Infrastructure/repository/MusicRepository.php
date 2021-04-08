@@ -38,6 +38,7 @@ class MusicRepository extends AbstractRepository{
         }
        
         $music = new Music($data[0]);
+        
         return $music;
 
     }
